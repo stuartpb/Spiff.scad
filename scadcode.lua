@@ -11,7 +11,7 @@ local function polygon(paths)
     pathlengths[i] = #nodes
     for j=1,#nodes do
       local node = nodes[j]
-      write(strf("[%i,%i]",node[1],node[2]))
+      write(strf("[%g,%g]",node[1],node[2]))
       if j ~= #nodes then write',' end
     end
     if i ~= #paths then write',' end
