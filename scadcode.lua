@@ -2,34 +2,34 @@ local m={}
 
 local write = io.write
 local strf = string.format
+local concat = table.concat
 
 local function polygon(paths)
-  write("polygon(points=[")
-  local pathlengths = {}
-  for i=1, #paths do
-    local nodes = paths[i]
-    pathlengths[i] = #nodes
-    for j=1,#nodes do
-      local node = nodes[j]
-      write(strf("[%g,%g]",node[1],node[2]))
-      if j ~= #nodes then write',' end
+
+  local polypoints = {}
+  local polypoint_i = 1
+
+  local polypaths = {}
+
+  for path_i=1, #paths do
+    local pathpoints = paths[path_i]
+
+    --This path, in poly point indices
+    local polypath = {}
+
+    for pathpoint_i=1,#pathpoints do
+      local pathpoint = pathpoints[pathpoint_i]
+      polypoints[polypoint_i] = strf("[%g,%g]",pathpoint[1],pathpoint[2])
+      polypath[pathpoint_i] = polypoint_i - 1
+      polypoint_i = polypoint_i + 1
     end
-    if i ~= #paths then write',' end
+
+    polypaths[path_i] = concat(polypath,',')
   end
-  write"],paths=["
-  local index = 0
-  for i=1, #pathlengths do
-    write'['
-    local pathend = index+pathlengths[i]
-    for j=index, pathend - 1 do
-      write(j)
-      if j ~= pathend - 1 then write',' end
-    end
-    index = pathend
-    write']'
-    if i~=#pathlengths then write',' end
-  end
-  write'])'
+
+  return "polygon(points=["..
+  concat(polypoints,',').."],paths=[["..
+  concat(polypaths,'],[')..']])'
 end
 
 m.polygon = polygon
