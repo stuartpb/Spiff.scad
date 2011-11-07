@@ -1,5 +1,7 @@
 include <spiffsans.scad>;
 
+$fn = 25;
+
 module lazysunday()
 {
 	translate([0,0.5,0])
@@ -35,11 +37,30 @@ depth = 1;
 
 scale([1.2,1,1]){
 	difference(){
-		translate([0,0,-thickness])
 		linear_extrude(height=thickness,convexity=10)
-		polygon([[-14,11.5],[14,11.5],[21.5,0.5],[21.5,-11.5],[-21.5,-11.5],[-21.5,0.5]]);
-		translate([0,0,-depth])
+		minkowski(){
+		circle(r=2,$fn=25);
+		polygon([[-13,10.5],[13,10.5],
+				[13,-0.5],[20.5,-0.5],
+				[20.5,-10.5],[-20.5,-10.5],
+				[-20.5,-0.5],[-13,-0.5]]);
+		}
+		translate([0,0,thickness-depth])
 		linear_extrude(height=depth+1,convexity=10)
 		lazysunday();
 	}
+}
+
+translate([0,0,thickness/2])
+scale([1,1,thickness/2])
+{
+	translate([17,14,0])
+	rotate_extrude(convexity = 10)
+	translate([2, 0, 0])
+	circle(r = 1, $fn = 25);
+
+	translate([-17,14,0])
+	rotate_extrude(convexity = 10)
+	translate([2, 0, 0])
+	circle(r = 1);
 }
