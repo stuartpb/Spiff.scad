@@ -5,6 +5,7 @@ names["?"]="question"
 names[":"]="colon"
 names["."]="period"
 names["-"]="hyphen"
+names["'"]="apostrophe"
 
 for i = string.byte"A", string.byte"Z" do
   local char = string.char(i)

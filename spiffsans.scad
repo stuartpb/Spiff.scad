@@ -16,6 +16,7 @@ module spiffsans_lookup_draw(char)
 {
   if(char==" ") {} //silly lookup, space can't be printed
   else if(char =="!") spiffsans_exclaim();
+  else if(char =="'") spiffsans_apostrophe();
   else if(char =="-") spiffsans_hyphen();
   else if(char ==".") spiffsans_period();
   else if(char =="0") spiffsans_digit_0();
@@ -62,6 +63,11 @@ module spiffsans_lookup_draw(char)
 module spiffsans_exclaim()
 {
   polygon(points=[[0,3],[0,10],[2,10],[2,3],[0,0],[0,2],[2,2],[2,0]],paths=[[0,1,2,3],[4,5,6,7]]);
+}
+
+module spiffsans_apostrophe()
+{
+  polygon(points=[[0,6],[0,10],[2,10],[2,6]],paths=[[0,1,2,3]]);
 }
 
 module spiffsans_hyphen()
