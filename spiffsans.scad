@@ -16,9 +16,13 @@ module spiffsans_lookup_draw(char)
 {
   if(char==" ") {} //silly lookup, space can't be printed
   else if(char =="!") spiffsans_exclaim();
+  else if(char ==""") spiffsans_quote();
   else if(char =="'") spiffsans_apostrophe();
+  else if(char =="+") spiffsans_plus();
+  else if(char ==",") spiffsans_comma();
   else if(char =="-") spiffsans_hyphen();
   else if(char ==".") spiffsans_period();
+  else if(char =="/") spiffsans_slash();
   else if(char =="0") spiffsans_digit_0();
   else if(char =="1") spiffsans_digit_1();
   else if(char =="2") spiffsans_digit_2();
@@ -30,6 +34,8 @@ module spiffsans_lookup_draw(char)
   else if(char =="8") spiffsans_digit_8();
   else if(char =="9") spiffsans_digit_9();
   else if(char ==":") spiffsans_colon();
+  else if(char ==";") spiffsans_semicolon();
+  else if(char =="=") spiffsans_equals();
   else if(char =="?") spiffsans_question();
   else if(char =="A" || char == "a") spiffsans_capital_a();
   else if(char =="B" || char == "b") spiffsans_capital_b();
@@ -57,6 +63,10 @@ module spiffsans_lookup_draw(char)
   else if(char =="X" || char == "x") spiffsans_capital_x();
   else if(char =="Y" || char == "y") spiffsans_capital_y();
   else if(char =="Z" || char == "z") spiffsans_capital_z();
+  else if(char =="\") spiffsans_backslash();
+  else if(char =="_") spiffsans_underscore();
+  else if(char =="`") spiffsans_grave();
+  else if(char =="|") spiffsans_bar();
   else echo(str("Unknown character: ", char));
 }
 
@@ -65,9 +75,24 @@ module spiffsans_exclaim()
   polygon(points=[[0,3],[0,10],[2,10],[2,3],[0,0],[0,2],[2,2],[2,0]],paths=[[0,1,2,3],[4,5,6,7]]);
 }
 
+module spiffsans_quote()
+{
+  polygon(points=[[0,6],[0,10],[2,10],[2,6],[4,6],[4,10],[6,10],[6,6]],paths=[[0,1,2,3],[4,5,6,7]]);
+}
+
 module spiffsans_apostrophe()
 {
   polygon(points=[[0,6],[0,10],[2,10],[2,6]],paths=[[0,1,2,3]]);
+}
+
+module spiffsans_plus()
+{
+  polygon(points=[[2,2],[2,4],[0,4],[0,6],[2,6],[2,8],[4,8],[4,6],[6,6],[6,4],[4,4],[4,2]],paths=[[0,1,2,3,4,5,6,7,8,9,10,11]]);
+}
+
+module spiffsans_comma()
+{
+  polygon(points=[[0,-2],[0,2],[2,2],[2,-2]],paths=[[0,1,2,3]]);
 }
 
 module spiffsans_hyphen()
@@ -78,6 +103,11 @@ module spiffsans_hyphen()
 module spiffsans_period()
 {
   polygon(points=[[0,0],[0,2],[2,2],[2,0]],paths=[[0,1,2,3]]);
+}
+
+module spiffsans_slash()
+{
+  polygon(points=[[0,0],[4,10],[6,10],[2,0]],paths=[[0,1,2,3]]);
 }
 
 module spiffsans_digit_0()
@@ -132,7 +162,17 @@ module spiffsans_digit_9()
 
 module spiffsans_colon()
 {
-  polygon(points=[[0,6],[0,8],[2,8],[2,6],[0,2],[0,4],[2,4],[2,2]],paths=[[0,1,2,3],[4,5,6,7]]);
+  polygon(points=[[0,6],[0,8],[2,8],[2,6],[0,0],[0,2],[2,2],[2,0]],paths=[[0,1,2,3],[4,5,6,7]]);
+}
+
+module spiffsans_semicolon()
+{
+  polygon(points=[[0,6],[0,8],[2,8],[2,6],[0,-2],[0,2],[2,2],[2,-2]],paths=[[0,1,2,3],[4,5,6,7]]);
+}
+
+module spiffsans_equals()
+{
+  polygon(points=[[0,6],[0,8],[4,8],[4,6],[0,2],[0,4],[4,4],[4,2]],paths=[[0,1,2,3],[4,5,6,7]]);
 }
 
 module spiffsans_question()
@@ -268,5 +308,25 @@ module spiffsans_capital_y()
 module spiffsans_capital_z()
 {
   polygon(points=[[0,0],[0,2],[3,8],[0,8],[0,10],[5,10],[5,8],[2,2],[5,2],[5,0]],paths=[[0,1,2,3,4,5,6,7,8,9]]);
+}
+
+module spiffsans_backslash()
+{
+  polygon(points=[[4,0],[0,10],[2,10],[6,0]],paths=[[0,1,2,3]]);
+}
+
+module spiffsans_underscore()
+{
+  polygon(points=[[0,0],[0,2],[6,2],[6,0]],paths=[[0,1,2,3]]);
+}
+
+module spiffsans_grave()
+{
+  polygon(points=[[2,6],[0,10],[2,10],[4,6]],paths=[[0,1,2,3]]);
+}
+
+module spiffsans_bar()
+{
+  polygon(points=[[0,0],[0,10],[2,10],[2,0]],paths=[[0,1,2,3]]);
 }
 
