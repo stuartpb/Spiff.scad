@@ -6,6 +6,15 @@ names[":"]="colon"
 names["."]="period"
 names["-"]="hyphen"
 names["'"]="apostrophe"
+names['"']="quote"
+names["|"]="bar"
+names["/"]="slash"
+names["\\"]="backslash"
+names["_"]="underscore"
+names["`"]="grave"
+names[","]="comma"
+names["="]="equals"
+names["+"]="plus"
 
 for i = string.byte"A", string.byte"Z" do
   local char = string.char(i)
