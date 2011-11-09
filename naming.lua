@@ -3,6 +3,7 @@ local names = {}
 names["!"]="exclaim"
 names["?"]="question"
 names[":"]="colon"
+names[";"]="semicolon"
 names["."]="period"
 names["-"]="hyphen"
 names["'"]="apostrophe"
