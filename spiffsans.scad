@@ -16,7 +16,7 @@ module spiffsans_lookup_draw(char)
 {
   if(char==" ") {} //silly lookup, space can't be printed
   else if(char =="!") spiffsans_exclaim();
-  else if(char ==""") spiffsans_quote();
+  else if(char =="\"") spiffsans_quote();
   else if(char =="'") spiffsans_apostrophe();
   else if(char =="+") spiffsans_plus();
   else if(char ==",") spiffsans_comma();
@@ -63,7 +63,7 @@ module spiffsans_lookup_draw(char)
   else if(char =="X" || char == "x") spiffsans_capital_x();
   else if(char =="Y" || char == "y") spiffsans_capital_y();
   else if(char =="Z" || char == "z") spiffsans_capital_z();
-  else if(char =="\") spiffsans_backslash();
+  else if(char =="\\") spiffsans_backslash();
   else if(char =="_") spiffsans_underscore();
   else if(char =="`") spiffsans_grave();
   else if(char =="|") spiffsans_bar();

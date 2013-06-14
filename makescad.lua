@@ -25,6 +25,7 @@ local string = require 'string'
 local upper = string.upper
 local lower = string.lower
 local byte = string.byte
+local format = string.format
 
 local table = require 'table'
 local sort = table.sort
@@ -83,9 +84,9 @@ for i=1, #glyphlist do
   --if the set of glyphs has one character standing in for both cases,
   if not glyphs[upper(char)] or not glyphs[lower(char)] then
     --it really should have been handled before this, but it can be handled here
-    write('  else if(char =="',upper(char),'" || char == "',lower(char),'") ')
+    write('  else if(char == "',upper(char),'" || char == "',lower(char),'") ')
   else
-    write('  else if(char =="',char,'") ')
+    write(format('  else if(char == %q) ',char))
   end
   write(fontname,"_",names[char],'();','\n')
 end
