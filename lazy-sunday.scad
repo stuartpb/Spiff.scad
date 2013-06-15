@@ -7,28 +7,28 @@ module lazysunday()
 	translate([-12.5,0.5,0])
 	{
 		translate([0,0,0])
-		spiffsans_capital_l();
+		spiffsans_uppercase_l();
 		translate([6,0,0])
-		spiffsans_capital_a();
+		spiffsans_uppercase_a();
 		translate([13,0,0])
-		spiffsans_capital_z();
+		spiffsans_uppercase_z();
 		translate([19,0,0])
-		spiffsans_capital_y();
+		spiffsans_uppercase_y();
 	}
 	translate([-20.5,-10.5,0])
 	{
 		translate([0,0,0])
-		spiffsans_capital_s();
+		spiffsans_uppercase_s();
 		translate([7,0,0])
-		spiffsans_capital_u();
+		spiffsans_uppercase_u();
 		translate([14,0,0])
-		spiffsans_capital_n();
+		spiffsans_uppercase_n();
 		translate([21,0,0])
-		spiffsans_capital_d();
+		spiffsans_uppercase_d();
 		translate([28,0,0])
-		spiffsans_capital_a();
+		spiffsans_uppercase_a();
 		translate([35,0,0])
-		spiffsans_capital_y();
+		spiffsans_uppercase_y();
 	}
 }
 
