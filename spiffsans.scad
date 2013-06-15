@@ -1,3 +1,4 @@
+// Spiff Sans
 // Author: Stuart P. Bentley <stuart@testtrack4.com>
 
 module spiffsans_write(string,spacing=1,i=0) { if (i < len(string)) {
