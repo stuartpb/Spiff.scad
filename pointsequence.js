@@ -2,7 +2,7 @@ function parseSequence(seq){
   var sequence = [];
   var nums = seq.split(/[\s,]+/g);
   for (var i = 0; i < nums.length; i+=2){
-    sequence[sequence.length] = [nums[i],nums[i+1]];
+    sequence[sequence.length] = [parseFloat(nums[i]),parseFloat(nums[i+1])];
   }
   return sequence;
 }
