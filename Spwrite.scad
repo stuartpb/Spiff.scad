@@ -1,4 +1,4 @@
-function glyph(font,char) = font[search(font,string[i])][2]
+function glyph(font,char) = font[search(font,char)][2];
 
 module write(string,font,spacing=1,i=0) {
   if (i<len(string) && search(font,string[i])) {
