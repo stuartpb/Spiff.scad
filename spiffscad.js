@@ -46,7 +46,7 @@ module.exports = function(font){
     lines[lines.length] = '  ' + JSON.stringify(row) + (i == glyphlist.length-1? '' : ',');
   }
 
-  lines[lines.length] = ']';
+  lines[lines.length] = '];';
 
   return lines.join('\n')+'\n';
 };
