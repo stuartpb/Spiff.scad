@@ -4,14 +4,15 @@ A variable-width font for OpenSCAD
 
 ## Usage
 
+    use <Spwrite.scad>;
     include <spiffsans.scad>;
 
     scale([1.75,1.75,1]) linear_extrude(height=8)
-      spiffsans_write("VARIABLE WIDTH TEXT!")
+      write("VARIABLE WIDTH TEXT!",spiffsans);
 
 ## Notes
 
-  Spiff Sans uses recursion for its variable widths. Until OpenSCAD is bumped
-  to have a higher call stack, you might have trouble with strings of more than
-  ~100 characters. Try breaking your write call up into multiple calls with
-  shorter strings.
+  Spwrite uses recursion for its variable widths. Due to OpenSCAD's
+  recursion limit, you might have trouble with strings of more than
+  ~1000 characters. If you encounter problems with this, try breaking your
+  write call up into multiple calls with shorter strings.

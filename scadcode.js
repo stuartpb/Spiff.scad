@@ -1,4 +1,4 @@
-exports.polygon = function(paths){
+function polyvector(paths){
   var points = [];
   var indices = [];
   for (var i=0; i < paths.length; i++) {
@@ -8,6 +8,15 @@ exports.polygon = function(paths){
       points[points.length] = paths[i][j];
     }
   }
-  return 'polygon(points=' + JSON.stringify(points)
-    + ',paths=' + JSON.stringify(indices) + ');';
+
+  return [points,indices];
+}
+
+exports.polyvector = polyvector;
+
+exports.polygon = function(paths){
+  var polyvec = polyvector(paths);
+
+  return 'polygon(points=' + JSON.stringify(polyvec[0])
+    + ',paths=' + JSON.stringify(polyvec[1]) + ');';
 };
