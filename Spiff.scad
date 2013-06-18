@@ -84,15 +84,25 @@ spiffsans = [
   ["|",2,[[[0,0],[0,10],[2,10],[2,0]],[[0,1,2,3]]]]
 ];
 
-function charentry(font,char) = font[search(char,font,1)[0]];
-function glyph(font,char) = charentry(font,char)[2];
-
 module write(string,font=spiffsans,spacing=1,i=0) {
-  if (i<len(string) && search(string[i],font,1)[0] != undef) {
-    if (glyph(font,string[i])){
-      polygon(points=glyph(font,string[i])[0], paths=glyph(font,string[i])[1]);
+  if (i<len(string)) {
+    charindex = search(string[i],font,1)[0];
+    
+    // If the character is in the font
+    if (charindex != undef) {
+      glyph = font[charindex][2];
+      if (glyph){
+        polygon(points=glyph[0], paths=glyph[1]);
+      }
+      translate(font[charindex][1] + spacing, 0, 0])
+        write(string, font, spacing, i=i+1);
+    } else {
+      glyph = font[0][2];
+      if (glyph){
+        polygon(points=glyph[0], paths=glyph[1]);
+      }
+      translate(font[0][1] + spacing,0,0])
+        write(string, font, spacing, i=i+1);
     }
-    translate([charentry(font,string[i])[1] + spacing,0,0])
-      write(string,font,spacing,i=i+1);
   }
 }
