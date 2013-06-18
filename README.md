@@ -27,14 +27,13 @@ transformations in combination with [linear_extrude][].
 
 ## Requirements
 
-Spiff.scad uses [scope](https://github.com/openscad/openscad/pull/338) and
-[recursion](https://github.com/openscad/openscad/issues/116), so you will need
-a recent (post-June 2013) development snapshot of OpenSCAD to use it.
+Spiff.scad uses [scope](https://github.com/openscad/openscad/pull/338) to
+achieve variable widths, so you will need a recent (June 2013)
+development snapshot of OpenSCAD to use it.
 
 If you're stuck on an older version of OpenSCAD, you can still generate the
 equivalent code for a font using [poorman-spiff](https://github.com/stuartpb/poorman-spiff).
 
-Spiff.scad uses recursion to achieve variable widths. Due to OpenSCAD's
-recursion limit, you may encounter problems writing longer strings. If this
-happens, try breaking your write call up into multiple calls with shorter
-strings.
+Due to OpenSCAD's recursion limit, you may encounter problems writing longer
+strings. If this happens, try breaking your write call up into multiple calls
+with shorter strings.
