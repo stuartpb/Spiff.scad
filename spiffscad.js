@@ -3,7 +3,6 @@ function quoted(char) {
   return JSON.stringify(char);
 }
 
-var names = require('./glyphmodnames.js');
 var scadcode = require('./scadcode.js');
 
 module.exports = function(font){
@@ -21,7 +20,7 @@ module.exports = function(font){
   glyphlist.sort();
 
   var lines = [];
-  var i, char;
+  var i, char, row;
 
   // Add header.
   if (font.name) {
@@ -30,17 +29,31 @@ module.exports = function(font){
   if (font.author) {
     lines[lines.length] = '// Author: ' + font.author;
   }
+  if (font.version) {
+    lines[lines.length] = '// Version: ' + font.version;
+  }
 
   if (lines.length > 0) lines[lines.length] = '';
 
   lines[lines.length] = prefix +' = [';
 
-  for(i=0; i < glyphlist.length; i++) {
+  if (font.noglyph) {
+    row = ['', font.noglyph.width];
+
+    if (font.noglyph.paths)
+      row[row.length] = scadcode.polyvector(font.noglyph.paths);
+
+    lines[lines.length] = '  ' + JSON.stringify(row) + (glyphlist.length == 0 ? '' : ',');
+  } else {
+    lines[lines.length] = '["",0],';
+  }
+
+  for (i=0; i < glyphlist.length; i++) {
     char = glyphlist[i];
 
-    var row = [char, font.glyphs[char].width];
+    row = [char, font.glyphs[char].width];
 
-    if(font.glyphs[char].paths)
+    if (font.glyphs[char].paths)
       row[row.length] = scadcode.polyvector(font.glyphs[char].paths);
 
     lines[lines.length] = '  ' + JSON.stringify(row) + (i == glyphlist.length-1? '' : ',');
@@ -48,5 +61,5 @@ module.exports = function(font){
 
   lines[lines.length] = '];';
 
-  return lines.join('\n')+'\n';
+  return lines.join('\n') + '\n';
 };
