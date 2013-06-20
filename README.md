@@ -10,6 +10,7 @@ Draws a group of 2D polygons for the given string, using the given font (see
 section on Fonts, below). Glyphs are spaced apart by the value of the third
 "spacing" parameter (1 unit by default). By default, if no font is specified,
 [Spiff Sans](https://github.com/stuartpb/spiffsans) will be used.
+(spiffsans.scad should be included in the same directory as Spiff.scad.)
 
 These 2D polygons can be transformed in 3D space using the regular OpenSCAD
 transformations in combination with [linear_extrude][].
