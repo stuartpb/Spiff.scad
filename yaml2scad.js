@@ -5,4 +5,4 @@ fs.writeFileSync(process.argv[3],require('./spiffscad.js')(
   require('./widths.js').setWidthsForFont(
   require('./pointsequence.js').parseFont(
     require('js-yaml').safeLoad(
-      fs.readFileSync(process.argv[2])))))),'utf8');
+      fs.readFileSync(process.argv[2],'utf8')))))),'utf8');
