@@ -21,8 +21,14 @@ transformations in combination with [linear_extrude][].
 
     use <Spiff.scad>;
 
-    scale([1.75,1.75,1]) linear_extrude(height=8)
-      write("VARIABLE WIDTH TEXT!");
+    write("Variable width text");
+
+    translate([0,-12,0]) linear_extrude(height=4)
+      write("Simple as anystring");
+
+See [spiff-examples][] for more examples of Spiff.scad in use.
+
+[spiff-examples]: https://github.com/stuartpb/spiff-examples
 
 ## Fonts
 
@@ -59,12 +65,13 @@ developed at https://github.com/stuartpb/spaggers .
 
 ## Requirements
 
-Spiff.scad uses [recursion](https://github.com/openscad/openscad/issues/116) to
-achieve variable widths, so you will need a recent (June 2013)
-development snapshot of OpenSCAD to use it.
+Spiff.scad requires at least OpenSCAD 2013.06, as it uses
+[module recursion][1] to calculate variable glyph widths.
+
+[1]: https://github.com/openscad/openscad/blob/openscad-2013.06/RELEASE_NOTES
 
 If you're stuck on an older version of OpenSCAD, you can still generate the
-equivalent code for a font (formatted as described in the section above) using
+equivalent code for writing text using
 [poorman-spiff](https://github.com/stuartpb/poorman-spiff).
 
 Due to OpenSCAD's recursion limit, you may encounter problems writing longer
