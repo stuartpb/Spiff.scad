@@ -32,7 +32,7 @@ See [spiffsans.yaml][] for an example.
 
 ### Example usage
 
-    node yaml2scad.js spiffsans.yaml spiffsans.scad
+    node bin/yaml2scad.js spiffsans.yaml spiffsans.scad
 
 ## Coming soon
 

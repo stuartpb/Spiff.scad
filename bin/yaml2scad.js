@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 var fs = require('fs');
 var fill = require('../lib/fill.js');
 var normalize = require('../lib/normalize.js');
