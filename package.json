@@ -1,8 +1,7 @@
 {
-  "name": "spiffsans",
-  "version": "2.0.0",
-  "description": "A variable-width font for OpenSCAD.",
-  "main": "spiffscad.js",
+  "name": "spaggers",
+  "version": "0.1.0",
+  "description": "A collection of font array generators.",
   "dependencies": {
     "js-yaml": "~2.1.0"
   },
@@ -15,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/stuartpb/spiffsans.git"
+    "url": "git://github.com/stuartpb/spaggers.git"
   },
   "keywords": [
     "scad",
