@@ -1,6 +1,10 @@
 # Spiff.scad
 
-Simple text writing for OpenSCAD
+This was a module I designed as a (mostly) drop-in replacement for [Write.scad](https://www.thingiverse.com/thing:16193) with support for variable-width characters, using the [Spiff Sans](https://www.thingiverse.com/thing:13347) font I had designed a year and a half prior.
+
+I intended to develop more tooling to support this module, but since I didn't have a 3D printer to test any of my designs with, I never did end up developing that: by the time I did finally get my own 3D printer, OpenSCAD had added support for `text()`, making both this and Write.scad redundant historical artifacts.
+
+The bespoke font that I made for (what would eventually become) this project is now a proper TrueType/OpenType font, maintained at [my `spiff-sans` repo](https://github.com/stuartpb/spiff-sans). If this project were ever revived (which it is extremely unlkiely to be), I'd have it build its SCAD code from UFO `.glif` files in `SpiffScad.ufo` there instead of following the custom YAML format I designed here.
 
 ## Usage
 
@@ -9,8 +13,8 @@ Simple text writing for OpenSCAD
 Draws a group of 2D polygons for the given string, using the given font (see
 section on Fonts, below). Glyphs are spaced apart by the value of the third
 "spacing" parameter (1 unit by default). By default, if no font is specified,
-[Spiff Sans](https://github.com/stuartpb/spiffsans) will be used.
-(spiffsans.scad should be included in the same directory as Spiff.scad.)
+Spiff Sans will be used. (spiffsans.scad should be included in the same directory
+as Spiff.scad.)
 
 These 2D polygons can be transformed in 3D space using the regular OpenSCAD
 transformations in combination with [linear_extrude][].
